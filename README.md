@@ -19,10 +19,10 @@ Voici la liste des prérequis qui doivent être installés sur la machine pour q
 2) NodeJs 
 
 # Configuration de la base de données
-host: 18.184.3.159
-database: wecandemo
-user: wecan
-password: PzRt2UNrs0A
+- host: 18.184.3.159
+- database: wecandemo
+- user: wecan
+- password: PzRt2UNrs0A
 
 La base de données peut être consultée et modifiée à l'aide de PHPmyAdmin sur 18.184.3.159/phpmyadmin
 
