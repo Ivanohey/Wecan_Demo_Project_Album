@@ -1,0 +1,38 @@
+
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="https://media-exp1.licdn.com/dms/image/C4D0BAQF4R9UCJYxdRg/company-logo_200_200/0/1589813636226?e=1620864000&v=beta&t=LVOqXw7pWti4kiAjC1rLrp_C90ZQD8K81zfdQRjI3So" class="profile-img-card" alt="image_profil"/>
+
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="fields">
+      <div class="form-group"><label for="pseudo">Pseudo</label>
+        <input type="text" class="form-control" name="pseudo" [(ngModel)]="form.pseudo" required #pseudo="ngModel"/>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && pseudo.invalid">Pseudo is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+          <input type="password" class="form-control" name="password"  [(ngModel)]="form.password" required minlength="6" #password="ngModel"/>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group" >
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <div class="popup alert alert-danger " role="alert" *ngIf="f.submitted && isLoginFailed">
+            Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="popup alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ pseudo }}.
+    </div>
+  </div>
+</div>
