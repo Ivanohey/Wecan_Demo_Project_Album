@@ -1,0 +1,29 @@
+.active {
+  border-bottom: 3px solid #1c7dde;
+}
+
+.connected{
+border: 3px solid #1c7dde;
+}
+
+.navbar {
+position: absolute;
+height: 60px;
+}
+
+.main-container {
+padding-top: 60px;
+position: relative;
+min-height: 100vh;
+}
+
+.footer {
+position: absolute;
+bottom:0;
+}
+.footer h4.footer-title{
+padding-bottom: 10px;
+}
+.footer li {
+padding: 0px;
+}

@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

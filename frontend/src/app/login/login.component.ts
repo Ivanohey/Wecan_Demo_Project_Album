@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   pseudo: string;
   role:string;
 
+
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
