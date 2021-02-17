@@ -6,7 +6,7 @@ var bcrypt = require("bcryptjs");
 
 //Exporte la méthode signup (est utilisée pour l'inscription de l'utilisateur)
 exports.signup = (req, res) => {      
-  var sql = "SELECT * FROM administrateurs WHERE administrateurs.pseudo = (?)";
+  var sql = "SELECT * FROM utilisateurs WHERE utilisateurs.pseudo = (?)";
   var userPseudo = req.body.pseudo;
   mySqlConnection.query(sql, [userPseudo], function (err, result, fields) {
     if (err) throw err;
@@ -21,7 +21,7 @@ exports.signup = (req, res) => {
     else {
      
       //Si le pseudo est libre, on insere les valeurs reçues dans la base de données
-      var sql_request = "INSERT INTO administrateurs (pseudo, password, nom, prenom) VALUES (?)";
+      var sql_request = "INSERT INTO utilisateurs (pseudo, password, nom, prenom) VALUES (?)";
       var values = [req.body.pseudo,                            //Pseudo
                     bcrypt.hashSync(req.body.password, 8),      //Mot de passe encrypté retourné par la fonction hashSync de bcrypt
                     req.body.last_name,                         //Nom de famille
@@ -38,13 +38,14 @@ exports.signup = (req, res) => {
 
 //Méthode signin utilisée pour s'inscrire
 exports.signin = (req, res) => {
-  var sql = "SELECT * FROM administrateurs WHERE pseudo = (?)";
+  var sql = "SELECT * FROM utilisateurs WHERE pseudo = (?)";
   var userPseudo = req.body.pseudo;
 
   //On vérifie si le pseudo entré par l'utilisateur existe dans la base de données
   mySqlConnection.query(sql, [userPseudo], function (err, result, fields) {
       if (err) throw err;
       if(!result[0]) {
+        console.log("User not found")
         return res.status(404).send({ message: "User Not found." });
       }
       

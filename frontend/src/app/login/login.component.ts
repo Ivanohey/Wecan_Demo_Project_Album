@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   form: any = {};
   isLoggedIn = false;
@@ -25,11 +25,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
-        console.log("DATA "+ data.body)
+        console.log("Data "+ data.body)
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
@@ -37,15 +36,13 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
         const userId = this.tokenStorage.getUser().id;
         console.log("USER ID IS: "+userId)
-        //this.checkUserPermission(userId);
-
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
     );
-  }
+  };
 
   reloadPage() {
     window.location.reload();
