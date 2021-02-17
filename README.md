@@ -16,15 +16,24 @@ Le projet a été développé à l'aide de Angular 11 et NodeJS, ainsi qu'une ba
 # Prérequis du projet
 Voici la liste des prérequis qui doivent être installés sur la machine pour que l'application fonctionne:
 1) Angular
-2) NodeJs 
+2) NodeJs
+
+Dépendences NodeJS:
+- bcrypt: Utilisé pour le système de cryptage
+- body-parser: Utilisé pour parser le body des réponses serveur
+- cors: Paramètres cors pour les navigateurs
+- express: Utilisé pour les requêtes et le routing
+- jsonwebtoken: Utilisé lors de la session de l'utilisateur connecté
+- mysql: Utilisé pour toutes les requêtes mysql
+- nodemon: Utilisé pour un redémarrage automatique du serveur lors de modifications
 
 # Configuration de la base de données
-- host: 18.184.3.159
+- host: 52.58.218.95
 - database: wecandemo
 - user: wecan
 - password: PzRt2UNrs0A
 
-La base de données peut être consultée et modifiée à l'aide de PHPmyAdmin sur 18.184.3.159/phpmyadmin
+La base de données peut être consultée et modifiée à l'aide de PHPmyAdmin sur 52.58.218.95/phpmyadmin
 
 
 
