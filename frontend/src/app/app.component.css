@@ -2,6 +2,10 @@
   border-bottom: 3px solid #1c7dde;
 }
 
+.logo{
+  width: 50%;
+}
+
 .connected{
 border: 3px solid #1c7dde;
 }

@@ -16,12 +16,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-
+import { MyalbumsComponent } from './myalbums/myalbums.component';
+import { HomeComponent } from './home/home.component';
+import { MyphotosComponent } from './myphotos/myphotos.component';
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'myalbums', component: MyalbumsComponent },
+  { path: 'myphotos', component: MyphotosComponent}
 ];
 
 
@@ -29,7 +34,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MyalbumsComponent,
+    HomeComponent,
+    MyphotosComponent
   ],
   imports: [
     BrowserModule,
@@ -42,4 +50,6 @@ const appRoutes: Routes = [
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
