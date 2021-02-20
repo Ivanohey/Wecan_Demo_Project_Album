@@ -24,6 +24,7 @@ export class MyalbumsService {
     }, httpOptions)
   };
 
+  //Créer un album
   createAlbum(idUtilisateur, newAlbumInfo): Observable<any>{
     console.log("DESCRIPTION: "+newAlbumInfo.description);
     return this.http.post(API_URL + "myalbums/createAlbum", {
@@ -34,12 +35,14 @@ export class MyalbumsService {
     }, httpOptions)
   };
 
+  //Récupérer les informations d'un album
   getAlbumInfo(idAlbum): Observable<any>{
     return this.http.post(API_URL + "getInfoAlbum", {
       id: idAlbum
     }, httpOptions)
   };
 
+  //Enregistrer les modifications d'un album
   saveModified(id, nom, desc, lieu): Observable<any>{
     return this.http.post(API_URL + "saveModified", {
       id: id,
@@ -49,11 +52,28 @@ export class MyalbumsService {
     }, httpOptions)
   };
 
+  //Supprimer un album
   deleteAlbum(idAlbum): Observable<any>{
     return this.http.post(API_URL + "deleteAlbum", {
       id: idAlbum
     }, httpOptions)
   };
+
+  //Insérer un image dans la base de données
+  addImage(idAlbum, linkPhoto, descPhoto): Observable<any>{
+    return this.http.post(API_URL + "myalbums/addImage", {
+      idAlbum: idAlbum,
+      lien: linkPhoto,
+      description: descPhoto
+    }, httpOptions)
+  };
+
+  //Récupérer les images d'un album
+  getImages(idAlbum): Observable<any>{
+    return this.http.post(API_URL + "myalbums/getImages",{
+      idAlbum: idAlbum
+    }, httpOptions)
+  }
 
 
 

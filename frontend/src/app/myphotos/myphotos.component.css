@@ -1,0 +1,12 @@
+.container-fluid{
+  padding: 0px;
+}
+
+.photo-container{
+  height: calc(100vh - 60px);
+  width: 100%;
+  margin: 0px;
+  background-color: #1a1a1a;
+}
+
+

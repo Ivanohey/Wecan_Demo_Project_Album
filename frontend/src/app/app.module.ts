@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-//Authentication modules
-import { FormsModule } from '@angular/forms';
+//Other modules
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { Routes, RouterModule } from '@angular/router';
@@ -45,7 +49,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     HttpClientModule,
-
+    NgImageFullscreenViewModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

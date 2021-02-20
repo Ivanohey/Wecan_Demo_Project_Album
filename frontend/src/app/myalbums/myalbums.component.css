@@ -2,13 +2,51 @@
   height: calc(100vh - 60px)
 }
 
+#myAlbumMainTitle{
+  padding-top: 30%;
+  text-align: center;
+  font-style: italic;
+  font-size: 25px;
+}
+
+#settingsHeader{
+  margin-bottom: 20px;
+}
+
+#containerBackBtn{
+  margin-top: 20px;
+  width: 100%;
+}
+
+#backBtn{
+  float: right;
+}
+
+#addPhotoBtnContainer{
+  display: grid;
+}
+
+#imageAddingBox{
+  background-color:#343a40;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+
+#addPhotosBtn{
+  font-size: 25px;
+  font-style: italic;
+  margin: auto
+}
+
 #albumList{
   padding-top: 20px;
   background-color: darkgray;
   width: 100%;
 }
 
-#standSettings{
+#albumSettings{
   background-color: lightgrey;
   width: 100%;
 }
@@ -22,33 +60,54 @@
   float: right;
 }
 
+#addImageContainer{
+  background-color: black;
+}
+
+#previewImage{
+  display: flex;
+  align-items: center;
+}
+
 #updateDBbutton{
   margin-bottom: 30px;
 }
 
-.infoBoxStand{
+#addImgBtn{
+  margin-top: 10px;
+}
+
+.selectObject{
+  display:inline-block;
+}
+
+.imagePreviewBox{
+  width: 110px;
+  height: 120px;
+  border-radius: 10px;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+}
+
+img.addedImage{
+  vertical-align:super;
+}
+
+.addedImage{
   width: 100%;
-  margin-bottom: 0px;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: auto;
+  vertical-align: middle;
 }
 
-.infoStandLabel{
-  margin-bottom: 5px;
-  color: white;
-  font-family: "Helvetica Neue", sans-serif;
-}
-
-.infoStandInput{
-  border-radius: 5px;
-}
 .settingsBox{
   background-color:#343a40;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
-}
-
-::ng-deep .mat-form-field-underline {
-  display: none;
 }
 
 .messageObject{
@@ -84,5 +143,25 @@ button.btn.cancel::before {
   font-family: fontAwesome;
   content: "\f00d\00a0";
 }
+
+.group-1,
+.group-2 {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    display: table;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.group-1 img,
+.group-2 img {
+    cursor: pointer;
+    object-fit: cover;
+    width: 110px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 
 
