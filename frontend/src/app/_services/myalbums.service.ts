@@ -75,6 +75,13 @@ export class MyalbumsService {
     }, httpOptions)
   }
 
+  //Récupérer les albums partagés à l'utilisateur connecté
+  getSharedAlbums(idUser): Observable<any>{
+    return this.http.post(API_URL + "myalbums/getSharedAlbums", {
+      idUtilisateur: idUser
+    }, httpOptions)
+  }
+
 
 
 

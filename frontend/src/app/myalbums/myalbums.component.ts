@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MyalbumsService } from '../_services/myalbums.service';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-myalbums',
@@ -12,8 +11,8 @@ import { stringify } from '@angular/compiler/src/util';
 export class MyalbumsComponent implements OnInit {
 
   constructor(private myAlbumService: MyalbumsService, private tokenStorageService: TokenStorageService, private router: Router) { }
-  connectedUserId: string;
 
+  connectedUserId: string;
   isLoggedIn = false;
   albumList = [];
 
@@ -51,10 +50,6 @@ export class MyalbumsComponent implements OnInit {
   saveError=false;
   saved=false;
 
-
-
-
-
   ngOnInit(): void {
     //Si non connecté, rediriger vers /login
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -87,7 +82,6 @@ export class MyalbumsComponent implements OnInit {
 
     //Ajout de la photo dans la liste d'images existantes
     this.imageList.push(newImageObject);
-
   }
 
   //Sélectionne l'album dans lequel on ajoute des photos

@@ -1,7 +1,11 @@
 <div class="container-fluid">
-
   <div class="photo-container">
 
+
+
+    <div class="albums" *ngFor="let album of albumList">
+      <p style="color: white;">{{album[0]}},  {{album[1]}}</p>
+    </div>
 
 
 
