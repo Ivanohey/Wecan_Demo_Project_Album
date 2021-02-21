@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-
 require('./App/routes/auth.routes')(app);
+require('./App/routes/albums.routes')(app);
 
 //On écoute sur localhost port 8080
 const PORT = process.env.PORT || 8080;
