@@ -13,7 +13,7 @@ Le projet représente une petite application de gestion d'albums photos. Dans ce
 # Description de l'installation
 Le projet a été développé à l'aide de Angular 11 et NodeJS, ainsi qu'une base de données MySQL. Le projet a été prévu pour tourner en localhost. Il n'est donc pas hébergé sur un serveur. La base de données MySQL est hébergée sur un serveur EC2 de AWS. L'environnement d'exploitation sur lequel le projet a été développé est Windows 10.
 
-# Prérequis du projet
+## Prérequis du projet
 Voici la liste des prérequis qui doivent être installés sur la machine pour que l'application fonctionne:
 1) Angular
 2) NodeJs
@@ -27,7 +27,7 @@ Dépendences NodeJS:
 - mysql: Utilisé pour toutes les requêtes mysql
 - nodemon: Utilisé pour un redémarrage automatique du serveur lors de modifications
 
-# Installation
+## Installation
 1) Pull le projet depuis GitHub
 2) Installer les dépendences nécéssaires dans les dossiers /frontend et /backend à l'aide de la commande "npm install"
 3) Lancer le serveur Angular à l'aide de "ng serve"
