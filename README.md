@@ -15,8 +15,8 @@ Le projet a été développé à l'aide de Angular 11 et NodeJS, ainsi qu'une ba
 
 ## Prérequis du projet
 Voici la liste des prérequis qui doivent être installés sur la machine pour que l'application fonctionne:
-1) Angular
-2) NodeJs
+1) NodeJs 
+2) Angular (Nécéssaire pour lancer le serveur frontend)
 
 Dépendences NodeJS:
 - bcrypt: Utilisé pour le système de cryptage
