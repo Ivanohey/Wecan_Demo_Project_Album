@@ -5,7 +5,7 @@ Ce projet a été développé par Ivan Kostine dans le cadre du recrutement pour
 Le projet représente une petite application de gestion d'albums photos. Dans cette application, un utilisateur peut:
 1) S'inscrire sur la plateforme
 2) Se connecter sur la plateforme
-3) Créer un album photo en spécifiant un titre, une description et une date.
+3) Créer un album photo en spécifiant un titre, une description et un lieu.
 4) Ajouter des photos dans un album spécifique
 5) Partager son album avec d'autres utilisateurs
 6) Visualiser des albums qui lui ont été partagés par d'autres utilisateurs
