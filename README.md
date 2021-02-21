@@ -27,6 +27,13 @@ Dépendences NodeJS:
 - mysql: Utilisé pour toutes les requêtes mysql
 - nodemon: Utilisé pour un redémarrage automatique du serveur lors de modifications
 
+# Installation
+1) Pull le projet depuis GitHub
+2) Installer les dépendences nécéssaires dans les dossiers /frontend et /backend à l'aide de la commande "npm install"
+3) Lancer le serveur Angular à l'aide de "ng serve"
+4) Lancer le serveur NodeJs à l'aide de "nodemon server" ou "node server" si nodemon n'est pas installé.
+5) Pour utiliser l'application, se diriger sur localhost:4200 dans le navigateur
+
 # Configuration de la base de données
 - host: 52.58.218.95
 - database: wecandemo
