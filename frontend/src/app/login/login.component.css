@@ -1,0 +1,17 @@
+#profile-img{
+  margin-bottom: 20px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.card.card-container{
+  margin-top: 10px;
+}
+.fields{
+  margin: 0 auto;
+  width: 250px;
+}
+.popup{
+  margin:0 auto;
+  width: 50%;
+}

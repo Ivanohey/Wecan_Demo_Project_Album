@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <!--Navigation-->
+        <div class="topnav">
+            <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="home"><img class="logo" src="https://cdn1.iconfinder.com/data/icons/autumn-flat/512/Autumn_Flat-01-512.png" alt="Logo"></a>
+                <ul class="navbar-nav pr-5">
+                    <li class="nav-item">
+                      <a id="HomePage" class="nav-link" href="home">Accueil</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto pr-5">
+                  <li class="nav-item">
+                    <a id="login" class="nav-link centered" routerLink="login" *ngIf="!isLoggedIn">Connexion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="login" class="nav-link centered" routerLink="register" *ngIf="!isLoggedIn">S'inscrire</a>
+                  </li>
+                  <li class="nav-item"  *ngIf="isLoggedIn">
+                    <a id="Mystands" class="nav-link centered" routerLink="myphotos">Mes photos</a>
+                  </li>
+                  <li class="nav-item"  *ngIf="isLoggedIn">
+                    <a id="Mystands" class="nav-link centered" routerLink="myalbums">Mes albums</a>
+                  </li>
+                  <li class="nav-item"  *ngIf="isLoggedIn">
+                    <a id="Logout" class="nav-link centered" href="" (click)="logout()">Log out</a>
+                  </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-container">
+          <router-outlet></router-outlet>
+        </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,255 @@
+
+<div class="container-fluid">
+  <div id="myAlbumContainer" class="row" *ngIf="isLoggedIn">
+
+
+    <div id="albumList" class="col-sm-4">
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Mes Albums</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let album of albumList">
+            <td>{{ album[1] }}</td>
+            <td>
+              <button id="modifyAlbumBtn" class="btn edit btn-primary" (click)="loadModAlbum(album[0])" >Modifier</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="createAlbumBtn"class="btn add btn-success" (click)="createAlbum()">Créer nouvel album</button>
+    </div>
+
+    <!--Modification d'albums-->
+    <div id="albumSettings" class="col-sm-8" *ngIf="actionSelected && albumSelected">
+      <div id="settingsHeader" class="row">
+        <div class="col-md-6">
+          <h1 style="padding-top: 10px;"> Outil modification </h1>
+        </div>
+        <div id="containerBackBtn" class="col-md-6">
+          <button id="backBtn" class="btn btn-secondary" (click)="resetAction()">Retour</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="nameForm" style="color: white;">Nom</label>
+              <textarea [(ngModel)]="modAlbumNom" class="form-control" rows="1">{{ modAlbumNom }}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="nameForm" style="color: white;">ID: {{ modAlbumId }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="descriptionForm" style="color: white;">Description</label>
+              <textarea [(ngModel)]="modAlbumDesc" class="form-control" rows="6">{{ modAlbumDesc }}</textarea>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="descriptionForm" style="color: white;">Lieu</label>
+              <textarea [(ngModel)]="modAlbumLieu" class="form-control" rows="1">{{ modAlbumLieu }}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn cancel btn-danger" style="float: left;" (click)="deleteAlbum(modAlbumId)">Supprimer l'album</button>
+        </div>
+        <div class="col-md-6">
+           <!--Bouton de sauvegarde des données dans la base de données-->
+          <button *ngIf="!saveClicked; else save_btn_clicked" class="btn save btn-primary" id="updateDBbutton" style="float: right;" (click)="saveModified(modAlbumId, modAlbumNom, modAlbumDesc, modAlbumLieu)">Enregistrer les modifications</button>
+          <button *ngIf="saveClicked && !saveError && !saved" class="btn btn-secondary" id="updateDBbutton" style="float: right;">Sauvegarde...</button>
+          <ng-template #save_btn_clicked>
+            <button *ngIf="saveError; else data_saved" class="btn btn-danger" id="updateDBbutton" style="float: right;" (click)="saveModified(modAlbumId, modAlbumNom, modAlbumDesc, modAlbumLieu)">Erreur</button>
+          </ng-template>
+          <ng-template #data_saved>
+            <button *ngIf="saved && !saveError" class="btn btn-success" id="updateDBbutton" style="float: right;" (click)="saveModified(modAlbumId, modAlbumNom, modAlbumDesc, modAlbumLieu)">Enregistré</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!--Creation d'albums-->
+    <div id="albumSettings" class="col-sm-8" *ngIf="actionSelected && creatingAlbum">
+      <div id="settingsHeader" class="row">
+        <div class="col-md-6">
+          <h1 style="padding-top: 10px;"> Création d'album </h1>
+        </div>
+        <div id="containerBackBtn" class="col-md-6">
+          <button id="backBtn" class="btn btn-secondary" (click)="resetAction()">Retour</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="nameForm" style="color: white;">Nom</label>
+              <textarea [(ngModel)]="nomAlbum" class="form-control" rows="1">{{ nomAlbum }}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="descriptionForm" style="color: white;">Lieu</label>
+              <textarea [(ngModel)]="lieuAlbum" class="form-control" rows="1">{{ lieuAlbum }}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="settingsBox">
+            <div class="form" >
+              <label for="descriptionForm" style="color: white;">Description</label>
+              <textarea [(ngModel)]="descriptionAlbum" class="form-control" rows="6">{{ descriptionAlbum }}</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Bouton de sauvegarde des données dans la base de données-->
+      <div class="row">
+        <div class="col-md-12">
+          <button *ngIf="!saveClicked; else save_btn_clicked" class="btn btn-primary" id="updateDBbutton" style="float: right;" (click)="saveNewAlbum(newAlbumInfo)">Enregistrer les modifications</button>
+          <button *ngIf="saveClicked && !saveError && !saved" class="btn btn-secondary" id="updateDBbutton" style="float: right;">Sauvegarde...</button>
+          <ng-template #save_btn_clicked>
+            <button *ngIf="saveError; else data_saved" class="btn btn-danger" id="updateDBbutton" style="float: right;" (click)="saveNewAlbum(newAlbumInfo)">Erreur</button>
+          </ng-template>
+          <ng-template #data_saved>
+            <button *ngIf="saved && !saveError" class="btn btn-success" id="updateDBbutton" style="float: right;" (click)="saveNewAlbum(newAlbumInfo)">Enregistré</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Ajout de photos -->
+    <div id="albumSettings" class="col-md-8" *ngIf="actionSelected && actionAddPhotos">
+      <div id="settingsHeader" class="row">
+        <div class="col-md-6">
+          <h1 style="padding-top: 10px;"> Ajout d'images </h1>
+        </div>
+        <div id="containerBackBtn" class="col-md-6">
+          <button id="backBtn" class="btn btn-secondary" (click)="resetAction()">Retour</button>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div id="addPhotosContainer" class="col-md-12">
+
+            <!--Block ajout d'image avec preview-->
+            <div id="imageAddingBox" class="row">
+
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="selectObject">
+                      <label for="albumSelect" style="color: white; display:block">Album</label>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Sélectionnez un album</mat-label>
+                        <mat-select>
+                          <mat-option style="color: white" *ngFor= "let album of albumList" [value]="album[0]" (click)="setSelectedAlbum(album[0])">
+                          {{ album[1] }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form">
+                      <label for="linkForm" style="color: white;">Lien</label>
+                      <textarea [(ngModel)]="linkNewPhoto" class="form-control" rows="2">{{ linkNewPhoto }}</textarea>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form">
+                      <label for="descForm" style="color: white;">Description</label>
+                      <textarea [(ngModel)]="descNewPhoto" class="form-control" rows="2">{{ descNewPhoto }}</textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <button id="addImgBtn" *ngIf="linkNewPhoto && albumIsSelected" class="btn btn-primary" (click)="addImageAlbum(selectedAlbum, linkNewPhoto, descNewPhoto)">Ajouter dans l'album</button>
+                    <button id="addImgBtn" *ngIf="!linkNewPhoto || !albumIsSelected" class="btn btn-secondary">Ajouter dans l'album</button>
+                  </div>
+                </div>
+              </div>
+              <!--Preview de l'image-->
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="previewImage" >
+                      <img *ngIf="linkNewPhoto" class="addedImage" src="{{ linkNewPhoto }}" alt="{{ linkNewPhoto }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!--Liste d'images ajoutées-->
+        <div class="row">
+          <div class="col-md-12 align-self-center">
+            <div class="group-2">
+                  <img *ngFor="let img of imageList; let i = index" [src]="img.src" (click)="showLightbox(i)" />
+                  <ng-image-fullscreen-view [images]="imageList" [imageIndex]="currentIndex" [show]="showFlag" (close)="closeEventHandler()"></ng-image-fullscreen-view>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--Ecran sans action-->
+    <div id="albumSettings" class="col-sm-8" *ngIf="!actionSelected">
+      <div class="row">
+        <div class="col-md-12">
+          <p id="myAlbumMainTitle">Veuillez selectionner un album, créez un album ou</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="addPhotoBtnContainer" class="col-md-12">
+          <button id="addPhotosBtn" class="btn btn-secondary" (click)="loadAddPhoto()">Ajoutez des photos</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

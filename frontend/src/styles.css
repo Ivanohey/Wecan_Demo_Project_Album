@@ -1,0 +1,175 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+/*Home page styles*/
+h1 {
+  font-size: 3vw;
+}
+
+a {
+  color: #616565;
+  width: 7vw;
+  font-size: 1vw;
+}
+
+.topnav {
+  height: auto;
+  max-height: max-content;
+  width: 100%;
+}
+
+.contact {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.c-Footer {
+  color: #ffffff;
+  font-size: small;
+  background-color: #333333;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.c-Footer-item, span {
+  font-size: 1vw;
+  height: auto;
+  width: 100%;
+}
+
+.imgbox {
+  display: grid;
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+
+.home-image {
+  opacity: 0.3;
+  max-height: 100%;
+  height: auto;
+  width: 100%;
+  margin: auto;
+}
+
+.main-content {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.o-Grid {
+  display: flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-title {
+  margin-bottom: auto;
+  font-size: 1.2vw;
+}
+
+.list-group-item {
+  color: #616565;
+  background-color: #333333;
+  border: none;
+  height: auto;
+  width: auto;
+}
+
+.list-group-item:hover {
+  background-color: #404040;
+  border-radius: 5px;
+}
+
+/*Social Media Icons Font Awesome Icons*/
+.fa {
+  font-size: 2vw;
+  width: 2.4vw;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa:hover {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.social-network {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: auto;
+}
+
+.footer-section-social-network {
+  margin-top: 30%;
+}
+
+
+profile-img{
+  height: 50px;
+  width: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+form{
+padding-top: 10px;
+}
+.card{
+  padding-top: 5%;
+  display: block;
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.card .card-container{
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
