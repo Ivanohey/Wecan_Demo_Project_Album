@@ -60,10 +60,10 @@ export class MyalbumsService {
   };
 
   //Insérer un image dans la base de données
-  addImage(idAlbum, linkPhoto, descPhoto): Observable<any>{
+  addImage(idAlbum, descPhoto, linkPhoto): Observable<any>{
     return this.http.post(API_URL + "myalbums/addImage", {
       idAlbum: idAlbum,
-      lien: linkPhoto,
+      src: linkPhoto,
       description: descPhoto
     }, httpOptions)
   };
@@ -73,14 +73,22 @@ export class MyalbumsService {
     return this.http.post(API_URL + "myalbums/getImages",{
       idAlbum: idAlbum
     }, httpOptions)
-  }
+  };
 
   //Récupérer les albums partagés à l'utilisateur connecté
   getSharedAlbums(idUser): Observable<any>{
     return this.http.post(API_URL + "myalbums/getSharedAlbums", {
       idUtilisateur: idUser
     }, httpOptions)
-  }
+  };
+
+  //Partage d'un album
+  shareAlbum(idAlbum, pseudo): Observable<any>{
+    return this.http.post(API_URL + "myalbums/shareAlbum", {
+      idAlbum: idAlbum,
+      pseudoUtilisateur: pseudo
+    }, httpOptions)
+  };
 
 
 

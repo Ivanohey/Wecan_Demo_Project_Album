@@ -44,6 +44,7 @@ export class MyalbumsComponent implements OnInit {
   albumSelected=false;
   creatingAlbum=false;
   actionAddPhotos=false;
+  albumIsSelected=false;
 
   //Button save
   saveClicked=false;
@@ -87,6 +88,7 @@ export class MyalbumsComponent implements OnInit {
   //Sélectionne l'album dans lequel on ajoute des photos
   setSelectedAlbum(albumId){
     this.selectedAlbum = albumId;
+    this.albumIsSelected = true;
     console.log(this.selectedAlbum);
     this.imageList=[];
     //Ajout d'images dans le tableau d'images
@@ -238,5 +240,6 @@ export class MyalbumsComponent implements OnInit {
     this.albumSelected=false;
     this.creatingAlbum=false;
     this.actionAddPhotos=false;
+    this.albumIsSelected=false;
   }
 }

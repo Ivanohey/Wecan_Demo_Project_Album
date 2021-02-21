@@ -67,7 +67,7 @@
             <div class="form" >
               <label for="descriptionForm" style="color: white;">Lieu</label>
               <textarea [(ngModel)]="modAlbumLieu" class="form-control" rows="1">{{ modAlbumLieu }}</textarea>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
             <div class="form" >
               <label for="descriptionForm" style="color: white;">Lieu</label>
               <textarea [(ngModel)]="lieuAlbum" class="form-control" rows="1">{{ lieuAlbum }}</textarea>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -198,8 +198,8 @@
                 </div>
                 <div class="row">
                   <div class="col-md-8">
-                    <button id="addImgBtn" *ngIf="linkNewPhoto" class="btn btn-primary" (click)="addImageAlbum(selectedAlbum, linkNewPhoto, descNewPhoto)">Ajouter dans l'album</button>
-                    <button id="addImgBtn" *ngIf="!linkNewPhoto" class="btn btn-secondary">Ajouter dans l'album</button>
+                    <button id="addImgBtn" *ngIf="linkNewPhoto && albumIsSelected" class="btn btn-primary" (click)="addImageAlbum(selectedAlbum, linkNewPhoto, descNewPhoto)">Ajouter dans l'album</button>
+                    <button id="addImgBtn" *ngIf="!linkNewPhoto || !albumIsSelected" class="btn btn-secondary">Ajouter dans l'album</button>
                   </div>
                 </div>
               </div>

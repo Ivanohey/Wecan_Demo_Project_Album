@@ -1,19 +1,86 @@
 <div class="container-fluid">
-  <div class="photo-container">
 
+  <div id="photo-container" class="row">
 
+    <div id="albumList" class="col-md-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="selectObject">
+            <label for="albumSelect" style="color: white; display:block">Albums</label>
+            <mat-form-field appearance="outline">
+              <mat-label>Mes albums</mat-label>
+              <mat-select>
+                <mat-option style="color: white" *ngFor= "let album of albumList" [value]="album[0]" (click)="setSelectedAlbum(album[0])">
+                {{ album[1] }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
 
-    <div class="albums" *ngFor="let album of albumList">
-      <p style="color: white;">{{album[0]}},  {{album[1]}}</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="selectObject">
+            <label for="albumSelect" style="color: white; display:block">Albums partagés</label>
+            <mat-form-field appearance="outline">
+              <mat-label>Albums partagés</mat-label>
+              <mat-select>
+                <mat-option style="color: white" *ngFor= "let album of sharedAlbumList" [value]="album[0]" (click)="setSharedSelectedAlbum(album[0])">
+                {{ album[1] }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div id="mainImageContainer" class="col-md-9">
+      <div *ngIf="inGallery || inSharedGallery">
+        <!--Liste d'images ajoutées-->
+        <div  id="settingsHeader" class="row">
+          <div class="col-md-6">
+            <h1 style="padding-top: 10px;"> Galerie </h1>
+          </div>
 
+          <!--Galerie-->
+          <div *ngIf="inGallery" id="containerShareBtn" class="col-md-6">
+            <button  id="shareBtn" class="btn btn-secondary" onclick="document.getElementById('id01').style.display='block'">Partager l'album</button>
+          </div>
+          <!--Modal partage d'albums-->
+          <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+              <div class="container">
+                <h1 style="color: black;">Partager l'album</h1>
+                <div class="form">
+                  <label for="userNameForm" style="color: black;">A qui souhaitez vous partager l'album ?</label>
+                  <textarea [(ngModel)]="selectedUser" class="form-control" rows="1" name="userName">{{selectedUser}}</textarea>
+                </div>
+                <div class="clearfix">
+                  <button class="btn btn-secondary" onclick="document.getElementById('id01').style.display='none'">Annuler</button>
+                  <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='none'" (click)="shareAlbum(selectedUser)">Partager</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div id="galleryMyImages" class="col-md-12 align-self-center">
+            <div class="group-2">
+              <img *ngFor="let img of imageList; let i = index" [src]="img.src" (click)="showLightbox(i)" />
+              <ng-image-fullscreen-view [images]="imageList" [imageIndex]="currentIndex" [show]="showFlag" (close)="closeEventHandler()"></ng-image-fullscreen-view>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="sharingAlbum">
+        div
+      </div>
 
+    </div>
 
   </div>
-
-
-
-
 
 </div>

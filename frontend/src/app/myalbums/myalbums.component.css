@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
 #myAlbumContainer{
   height: calc(100vh - 60px)
 }
@@ -123,7 +125,6 @@ img.addedImage{
   background-color:lightsteelblue;
 }
 
-
 button.btn.add::before {
   font-family: fontAwesome;
   content: "\f067\00a0";
@@ -162,6 +163,48 @@ button.btn.cancel::before {
     padding: 5px;
     border-radius: 10px;
 }
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: lightskyblue!important;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+color: white!important;
+  opacity: 0.8!important;
+}
+
+
+::ng-deep .mat-input-element {
+  caret-color: white!important;
+}
+
+
+::ng-deep .mat-form-field-label {
+  color: rgb(255, 255, 255)!important;
+
+}
+
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: white!important;
+}
+
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: white!important;
+}
+
+::ng-deep .mat-select-arrow {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 5px solid;
+margin: 0 4px;
+color: white!important;
+}
+
 
 
 
